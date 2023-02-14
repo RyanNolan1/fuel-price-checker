@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fuel Price Checker</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <header>Fuel Price Checker</header>
-    <input type="text" />
-    <section>results</section>
+    <input type="text" id="post-code-input" />
+    <button id="submit-postcode" type="submit">Submit Postcode</button>
+    <button id="sort-by-distance" type="submit">Sort by Distance</button>
+    <table id="fuel-table"></table>
   </body>
 </html>
