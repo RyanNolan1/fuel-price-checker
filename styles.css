@@ -1,3 +1,25 @@
 body {
     background-color: rgb(255, 255, 255);
 }
+
+#unleaded {
+    background-color: rgb(21, 110, 7);
+    color: rgb(255, 255, 255);
+}
+
+#super-unleaded {
+    background-color: white;
+    color: green;
+    font-weight: 600;
+}
+
+#diesel {
+    background-color: black;
+    color: white;
+}
+
+#premium-diesel {
+    background-color: black;
+    color: white;
+    font-weight: 600;
+}
