@@ -1,16 +1,51 @@
 import { api_key } from "./key.js";
 
+document.getElementById("unleaded").addEventListener("click", sortByFuel);
 document
-  .getElementById("submit-postcode")
-  .addEventListener("click", getPostCode);
+  .getElementById("unleaded")
+  .addEventListener("click", changeFuelUnleaded);
+
+document.getElementById("super-unleaded").addEventListener("click", sortByFuel);
+document
+  .getElementById("super-unleaded")
+  .addEventListener("click", changeFuelSuperUnleaded);
+
+document.getElementById("diesel").addEventListener("click", sortByFuel);
+document.getElementById("diesel").addEventListener("click", changeFuelDiesel);
+
+document.getElementById("premium-diesel").addEventListener("click", sortByFuel);
+document
+  .getElementById("premium-diesel")
+  .addEventListener("click", sortByPremiumDiesel);
 
 document
   .getElementById("sort-by-distance")
   .addEventListener("click", sortByDistance);
-
 document.getElementById("sort-by-price").addEventListener("click", sortByPrice);
 
-export function getPostCode() {
+let fuel = "";
+
+function changeFuelUnleaded() {
+  fuel = "Unleaded";
+  return fuel;
+}
+
+function changeFuelSuperUnleaded() {
+  fuel = "Super Unleaded";
+  return fuel;
+}
+
+function changeFuelDiesel() {
+  fuel = "Diesel";
+  return fuel;
+}
+
+function sortByPremiumDiesel() {
+  fuel = "Premium Diesel";
+  return fuel;
+}
+
+export function sortByFuel() {
   const postCode = document.getElementById("post-code-input").value;
 
   return fetch(
@@ -42,17 +77,23 @@ export function getPostCode() {
          </thread>`;
 
     for (let i = 0; i < results.length; i++) {
-      table += `
+      const x = results[i].FuelPriceList;
+
+      for (let j = 0; j < x.length; j++) {
+        if (x[j].FuelType === fuel) {
+          table += `
     <tbody>
     <tr>
-<td>${results[i].FuelPriceList[1].LatestRecordedPrice.InPence} </td>
+<td>${x[j].LatestRecordedPrice.InPence} </td>
 <td>${results[i].Brand}</td>
 <td>${results[i].DistanceFromSearchPostcode}</td>
 <td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
 </tr>
 </tbody>`;
+        }
+        document.getElementById("fuel-table").innerHTML = table;
+      }
     }
-    document.getElementById("fuel-table").innerHTML = table;
   }
 }
 
@@ -91,17 +132,23 @@ export function sortByDistance() {
      </thread>`;
 
     for (let i = 0; i < results.length; i++) {
-      table += `
+      const x = results[i].FuelPriceList;
+
+      for (let j = 0; j < x.length; j++) {
+        if (x[j].FuelType === fuel) {
+          table += `
     <tbody>
     <tr>
-<td>${results[i].FuelPriceList[1].LatestRecordedPrice.InPence} </td>
+<td>${x[j].LatestRecordedPrice.InPence} </td>
 <td>${results[i].Brand}</td>
 <td>${results[i].DistanceFromSearchPostcode}</td>
 <td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
 </tr>
 </tbody>`;
+        }
+        document.getElementById("fuel-table").innerHTML = table;
+      }
     }
-    document.getElementById("fuel-table").innerHTML = table;
   }
 }
 
@@ -136,23 +183,52 @@ export function sortByPrice() {
     </tr>
      </thread>`;
 
+    let fuelPrice = 0;
+    let priceArray = [];
+
     for (let i = 0; i < results.length; i++) {
       const x = results[i].FuelPriceList;
 
       for (let j = 0; j < x.length; j++) {
-        if (x[j].FuelType === "Unleaded") {
-          table += `
-          <tbody>
-          <tr>
-      <td>${x[j].LatestRecordedPrice.InPence} </td>
-      <td>${results[i].Brand}</td>
-      <td>${results[i].DistanceFromSearchPostcode}</td>
-      <td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
-      </tr>
-      </tbody>`;
+        if (
+          x[j].FuelType === fuel &&
+          x[j].LatestRecordedPrice.InPence > fuelPrice
+        ) {
+          priceArray.push({
+            Price: x[j].LatestRecordedPrice.InPence,
+            Company: results[i].Brand,
+            Distance: results[i].DistanceFromSearchPostcode,
+            Location: results[i].Suburb ? results[i].Suburb : results[i].Town,
+          });
+        } else if (
+          x[j].FuelType === fuel &&
+          x[j].LatestRecordedPrice.InPence < fuelPrice
+        ) {
+          priceArray.unshift({
+            Price: x[j].LatestRecordedPrice.InPence,
+            Company: results[i].Brand,
+            Distance: results[i].DistanceFromSearchPostcode,
+            Location: results[i].Suburb ? results[i].Suburb : results[i].Town,
+          });
         }
-        document.getElementById("fuel-table").innerHTML = table;
       }
     }
+
+    priceArray.sort((a, b) => {
+      return a.Price - b.Price;
+    });
+
+    for (let i = 0; i < priceArray.length; i++) {
+      table += `
+      <tbody>
+      <tr>
+      <td>${priceArray[i].Price} </td>
+      <td>${priceArray[i].Company}</td>
+      <td>${priceArray[i].Distance}</td>
+      <td>${priceArray[i].Location}</td>
+      </tr>
+      </tbody>`;
+    }
+    document.getElementById("fuel-table").innerHTML = table;
   }
 }
