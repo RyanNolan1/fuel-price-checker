@@ -18,10 +18,10 @@ document
   .getElementById("premium-diesel")
   .addEventListener("click", sortByPremiumDiesel);
 
-document
-  .getElementById("sort-by-distance")
-  .addEventListener("click", sortByDistance);
-document.getElementById("sort-by-price").addEventListener("click", sortByPrice);
+// document
+//   .getElementById("sort-by-distance")
+//   .addEventListener("click", sortByDistance);
+// document.getElementById("sort-by-price").addEventListener("click", sortByPrice);
 
 let fuel = "";
 
@@ -66,169 +66,215 @@ export function sortByFuel() {
   function displayStations(data) {
     let results = data.Response.DataItems.FuelStationDetails.FuelStationList;
 
-    let table = `
-        <thead>
-        <tr>
-        <th>Price</th>
-        <th>Company</th>
-        <th>Distance</th>
-        <th>Location</th>
-        </tr>
-         </thread>`;
-
     for (let i = 0; i < results.length; i++) {
       const x = results[i].FuelPriceList;
 
       for (let j = 0; j < x.length; j++) {
         if (x[j].FuelType === fuel) {
-          table += `
-    <tbody>
-    <tr>
-<td>${x[j].LatestRecordedPrice.InPence} </td>
-<td>${results[i].Brand}</td>
-<td>${results[i].DistanceFromSearchPostcode}</td>
-<td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
-</tr>
-</tbody>`;
+          const station = `
+          <section class="station">
+<li class="station-list">
+<section class="station-logo">
+<h1>${results[i].Brand}</h1>
+<p class="station-town">${results[i].Suburb ? results[i].Suburb : results[i].Town}</p>
+</section>
+<section class="station-details">
+<h2>${results[i].DistanceFromSearchPostcode}(Miles) </h2>
+${x[j].LatestRecordedPrice.InPence}
+<station-details></li>
+</section>
+`;
+          document.querySelector("ul").insertAdjacentHTML("beforeend", station);
         }
-        document.getElementById("fuel-table").innerHTML = table;
       }
     }
   }
 }
 
-export function sortByDistance() {
-  const postCode = document.getElementById("post-code-input").value;
+// export function sortByFuel() {
+//   const postCode = document.getElementById("post-code-input").value;
 
-  return fetch(
-    `https://uk1.ukvehicledata.co.uk/api/datapackage/FuelPriceData?v=2&api_nullitems=1&auth_apikey=${api_key}&key_POSTCODE=${postCode}`
-  )
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("NETWORK RESPONSE ERROR");
-      }
-    })
-    .then((data) => {
-      orderByDistance(data);
-    })
-    .catch((error) => console.error("FETCH ERROR:", error));
+//   return fetch(
+//     `https://uk1.ukvehicledata.co.uk/api/datapackage/FuelPriceData?v=2&api_nullitems=1&auth_apikey=${api_key}&key_POSTCODE=${postCode}`
+//   )
+//     .then((response) => {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         throw new Error("NETWORK RESPONSE ERROR");
+//       }
+//     })
+//     .then((data) => {
+//       displayStations(data);
+//     })
+//     .catch((error) => console.error("FETCH ERROR:", error));
 
-  function orderByDistance(data) {
-    let results = data.Response.DataItems.FuelStationDetails.FuelStationList;
-    results.sort((a, b) => {
-      return a.DistanceFromSearchPostcode - b.DistanceFromSearchPostcode;
-    });
+//   function displayStations(data) {
+//     let results = data.Response.DataItems.FuelStationDetails.FuelStationList;
 
-    let table = `
-    <thead>
-    <tr>
-    <th>Price</th>
-    <th>Company</th>
-    <th>Distance</th>
-    <th>Location</th>
-    </tr>
-     </thread>`;
+//     let table = `
+//         <thead>
+//         <tr>
+//         <th>Price</th>
+//         <th>Company</th>
+//         <th>Distance</th>
+//         <th>Location</th>
+//         </tr>
+//          </thread>`;
 
-    for (let i = 0; i < results.length; i++) {
-      const x = results[i].FuelPriceList;
+//     for (let i = 0; i < results.length; i++) {
+//       const x = results[i].FuelPriceList;
 
-      for (let j = 0; j < x.length; j++) {
-        if (x[j].FuelType === fuel) {
-          table += `
-    <tbody>
-    <tr>
-<td>${x[j].LatestRecordedPrice.InPence} </td>
-<td>${results[i].Brand}</td>
-<td>${results[i].DistanceFromSearchPostcode}</td>
-<td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
-</tr>
-</tbody>`;
-        }
-        document.getElementById("fuel-table").innerHTML = table;
-      }
-    }
-  }
-}
+//       for (let j = 0; j < x.length; j++) {
+//         if (x[j].FuelType === fuel) {
+//           table += `
+//     <tbody>
+//     <tr>
+// <td>${x[j].LatestRecordedPrice.InPence} </td>
+// <td>${results[i].Brand}</td>
+// <td>${results[i].DistanceFromSearchPostcode}</td>
+// <td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
+// </tr>
+// </tbody>`;
+//         }
+//         document.getElementById("fuel-table").innerHTML = table;
+//       }
+//     }
+//   }
+// }
 
-export function sortByPrice() {
-  const postCode = document.getElementById("post-code-input").value;
+// export function sortByDistance() {
+//   const postCode = document.getElementById("post-code-input").value;
 
-  return fetch(
-    `https://uk1.ukvehicledata.co.uk/api/datapackage/FuelPriceData?v=2&api_nullitems=1&auth_apikey=${api_key}&key_POSTCODE=${postCode}`
-  )
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("NETWORK RESPONSE ERROR");
-      }
-    })
-    .then((data) => {
-      orderByPrice(data);
-    })
-    .catch((error) => console.error("FETCH ERROR:", error));
+//   return fetch(
+//     `https://uk1.ukvehicledata.co.uk/api/datapackage/FuelPriceData?v=2&api_nullitems=1&auth_apikey=${api_key}&key_POSTCODE=${postCode}`
+//   )
+//     .then((response) => {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         throw new Error("NETWORK RESPONSE ERROR");
+//       }
+//     })
+//     .then((data) => {
+//       orderByDistance(data);
+//     })
+//     .catch((error) => console.error("FETCH ERROR:", error));
 
-  function orderByPrice(data) {
-    let results = data.Response.DataItems.FuelStationDetails.FuelStationList;
+//   function orderByDistance(data) {
+//     let results = data.Response.DataItems.FuelStationDetails.FuelStationList;
+//     results.sort((a, b) => {
+//       return a.DistanceFromSearchPostcode - b.DistanceFromSearchPostcode;
+//     });
 
-    let table = `
-    <thead>
-    <tr>
-    <th>Price</th>
-    <th>Company</th>
-    <th>Distance</th>
-    <th>Location</th>
-    </tr>
-     </thread>`;
+//     let table = `
+//     <thead>
+//     <tr>
+//     <th>Price</th>
+//     <th>Company</th>
+//     <th>Distance</th>
+//     <th>Location</th>
+//     </tr>
+//      </thread>`;
 
-    let fuelPrice = 0;
-    let priceArray = [];
+//     for (let i = 0; i < results.length; i++) {
+//       const x = results[i].FuelPriceList;
 
-    for (let i = 0; i < results.length; i++) {
-      const x = results[i].FuelPriceList;
+//       for (let j = 0; j < x.length; j++) {
+//         if (x[j].FuelType === fuel) {
+//           table += `
+//     <tbody>
+//     <tr>
+// <td>${x[j].LatestRecordedPrice.InPence} </td>
+// <td>${results[i].Brand}</td>
+// <td>${results[i].DistanceFromSearchPostcode}</td>
+// <td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
+// </tr>
+// </tbody>`;
+//         }
+//         document.getElementById("fuel-table").innerHTML = table;
+//       }
+//     }
+//   }
+// }
 
-      for (let j = 0; j < x.length; j++) {
-        if (
-          x[j].FuelType === fuel &&
-          x[j].LatestRecordedPrice.InPence > fuelPrice
-        ) {
-          priceArray.push({
-            Price: x[j].LatestRecordedPrice.InPence,
-            Company: results[i].Brand,
-            Distance: results[i].DistanceFromSearchPostcode,
-            Location: results[i].Suburb ? results[i].Suburb : results[i].Town,
-          });
-        } else if (
-          x[j].FuelType === fuel &&
-          x[j].LatestRecordedPrice.InPence < fuelPrice
-        ) {
-          priceArray.unshift({
-            Price: x[j].LatestRecordedPrice.InPence,
-            Company: results[i].Brand,
-            Distance: results[i].DistanceFromSearchPostcode,
-            Location: results[i].Suburb ? results[i].Suburb : results[i].Town,
-          });
-        }
-      }
-    }
+// export function sortByPrice() {
+//   const postCode = document.getElementById("post-code-input").value;
 
-    priceArray.sort((a, b) => {
-      return a.Price - b.Price;
-    });
+//   return fetch(
+//     `https://uk1.ukvehicledata.co.uk/api/datapackage/FuelPriceData?v=2&api_nullitems=1&auth_apikey=${api_key}&key_POSTCODE=${postCode}`
+//   )
+//     .then((response) => {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         throw new Error("NETWORK RESPONSE ERROR");
+//       }
+//     })
+//     .then((data) => {
+//       orderByPrice(data);
+//     })
+//     .catch((error) => console.error("FETCH ERROR:", error));
 
-    for (let i = 0; i < priceArray.length; i++) {
-      table += `
-      <tbody>
-      <tr>
-      <td>${priceArray[i].Price} </td>
-      <td>${priceArray[i].Company}</td>
-      <td>${priceArray[i].Distance}</td>
-      <td>${priceArray[i].Location}</td>
-      </tr>
-      </tbody>`;
-    }
-    document.getElementById("fuel-table").innerHTML = table;
-  }
-}
+//   function orderByPrice(data) {
+//     let results = data.Response.DataItems.FuelStationDetails.FuelStationList;
+
+//     let table = `
+//     <thead>
+//     <tr>
+//     <th>Price</th>
+//     <th>Company</th>
+//     <th>Distance</th>
+//     <th>Location</th>
+//     </tr>
+//      </thread>`;
+
+//     let fuelPrice = 0;
+//     let priceArray = [];
+
+//     for (let i = 0; i < results.length; i++) {
+//       const x = results[i].FuelPriceList;
+
+//       for (let j = 0; j < x.length; j++) {
+//         if (
+//           x[j].FuelType === fuel &&
+//           x[j].LatestRecordedPrice.InPence > fuelPrice
+//         ) {
+//           priceArray.push({
+//             Price: x[j].LatestRecordedPrice.InPence,
+//             Company: results[i].Brand,
+//             Distance: results[i].DistanceFromSearchPostcode,
+//             Location: results[i].Suburb ? results[i].Suburb : results[i].Town,
+//           });
+//         } else if (
+//           x[j].FuelType === fuel &&
+//           x[j].LatestRecordedPrice.InPence < fuelPrice
+//         ) {
+//           priceArray.unshift({
+//             Price: x[j].LatestRecordedPrice.InPence,
+//             Company: results[i].Brand,
+//             Distance: results[i].DistanceFromSearchPostcode,
+//             Location: results[i].Suburb ? results[i].Suburb : results[i].Town,
+//           });
+//         }
+//       }
+//     }
+
+//     priceArray.sort((a, b) => {
+//       return a.Price - b.Price;
+//     });
+
+//     for (let i = 0; i < priceArray.length; i++) {
+//       table += `
+//       <tbody>
+//       <tr>
+//       <td>${priceArray[i].Price} </td>
+//       <td>${priceArray[i].Company}</td>
+//       <td>${priceArray[i].Distance}</td>
+//       <td>${priceArray[i].Location}</td>
+//       </tr>
+//       </tbody>`;
+//     }
+//     document.getElementById("fuel-table").innerHTML = table;
+//   }
+// }

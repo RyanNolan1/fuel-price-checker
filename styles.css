@@ -1,27 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
 body {
-    background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+#container {
+  display: block;
+}
+
+header {
+  font-size: 3vh;
+  background-color: #02414f;
+  color: white;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* p {
+  font-size: 20px;
+  padding: 3%;
+} */
+
+#post-code-input {
+  width: 80vw;
+  height: 7vh;
+  border-radius: 40px;
+  margin: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
 }
 
 #unleaded {
-    background-color: rgb(21, 110, 7);
-    color: rgb(255, 255, 255);
-    font-weight: 600;
+  background-color: rgb(21, 110, 7);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  width: 40vw;
+  height: 7vh;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 #super-unleaded {
-    background-color: white;
-    color: green;
-    font-weight: 600;
+  background-color: white;
+  color: green;
+  font-weight: 600;
+  width: 40vw;
+  height: 7vh;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 #diesel {
-    background-color: black;
-    color: white;
-    font-weight: 600;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  width: 40vw;
+  height: 7vh;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 #premium-diesel {
-    background-color: black;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  width: 40vw;
+  height: 7vh;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+#sort-by-distance {
+  color: rgb(0, 0, 0);
+  background-color: white;
+  font-weight: 600;
+  width: 40vw;
+  height: 7vh;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+#sort-by-price {
+  color: rgb(0, 0, 0);
+  background-color: white;
+  font-weight: 600;
+  width: 40vw;
+  height: 7vh;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+ul {
+    display: inline-block;
+    padding: 0;
+    list-style-type: none;
+}
+
+.station {
+  width: 90vw;
+  text-align: center;
+  margin:10px;
+  filter: drop-shadow(5px 5px 4px #dcdcde);
+}
+
+.station-list {
+    width: 90vw;
+    background-color:white;
+    height: 12vh;
+    border-radius: 10px;
+    display: flex;
+}
+
+.station-logo {
+    width: 20vw;
+    background-color:#02414f;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    display: inline-block;
+}
+
+.station-town {
+    height: 20px;
     color: white;
-    font-weight: 600;
+}
+
+
+h1 {
+    display:inline-block;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:70%;
+}
+
+h2 {
+    width: 40%;
+    text-align: left;
+    font-size: 15px;
 }
