@@ -57,6 +57,11 @@ p {
   border-style: solid;
 }
 
+#unleaded:focus {
+  outline:2px solid orange;
+}
+
+
 #super-unleaded {
   background-color: white;
   color: green;
@@ -68,6 +73,10 @@ p {
   border-color: green;
   border-width: 2px;
   border-style: solid;
+}
+
+#super-unleaded:focus {
+  outline:2px solid orange;
 }
 
 #diesel {
@@ -83,6 +92,11 @@ p {
   border-style: solid;
 }
 
+#diesel:focus {
+  outline:2px solid orange;
+}
+
+
 #premium-diesel {
   background-color: black;
   color: white;
@@ -94,6 +108,10 @@ p {
   border-color: black;
   border-width: 2px;
   border-style: solid;
+}
+
+#premium-diesel:focus {
+  outline:2px solid orange;
 }
 
 #sort-by-distance {
@@ -109,6 +127,10 @@ p {
   border-style: solid;
 }
 
+#sort-by-distance:focus {
+  outline:2px solid orange;
+}
+
 #sort-by-price {
   color:white;
   background-color:#02414f;
@@ -120,6 +142,10 @@ p {
   border-color:#02414f;
   border-width: 2px;
   border-style: solid;
+}
+
+#sort-by-price:focus {
+  outline:2px solid orange;
 }
 
 #station-results {

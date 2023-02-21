@@ -79,8 +79,8 @@ export function sortByFuel() {
     <section class="station-logo">
     <h1>${results[i].Brand}</h1>
     <p id="station-town">${
-            results[i].Suburb ? results[i].Suburb : results[i].Town
-          }</p>
+      results[i].Suburb ? results[i].Suburb : results[i].Town
+    }</p>
     </section>
     <section id="station-details">
     <section id="station-address">
@@ -89,8 +89,8 @@ export function sortByFuel() {
     <h2>${results[i].Postcode} </h2>
     </section>
     <p id="miles-from">${
-            results[i].DistanceFromSearchPostcode
-          } Miles away from ${postCode.toUpperCase()} </p>
+      results[i].DistanceFromSearchPostcode
+    } Miles away from ${postCode.toUpperCase()} </p>
     </section>
     <section id="fuel-price-container">
     <p id="fuel-price">${x[j].LatestRecordedPrice.InPence}p</p>
@@ -100,8 +100,7 @@ export function sortByFuel() {
         }
       }
     }
-    document
-    .getElementById("station-results").innerHTML = station;
+    document.getElementById("station-results").innerHTML = station;
   }
 }
 
@@ -129,19 +128,19 @@ export function sortByDistance() {
       return a.DistanceFromSearchPostcode - b.DistanceFromSearchPostcode;
     });
 
-for (let i = 0; i < results.length; i++) {
-  const x = results[i].FuelPriceList;
+    for (let i = 0; i < results.length; i++) {
+      const x = results[i].FuelPriceList;
 
-  for (let j = 0; j < x.length; j++) {
-    if (x[j].FuelType === fuel) {
-      station += `
+      for (let j = 0; j < x.length; j++) {
+        if (x[j].FuelType === fuel) {
+          station += `
 <section id="station">
 <li class="station-list">
 <section class="station-logo">
 <h1>${results[i].Brand}</h1>
 <p id="station-town">${
-        results[i].Suburb ? results[i].Suburb : results[i].Town
-      }</p>
+            results[i].Suburb ? results[i].Suburb : results[i].Town
+          }</p>
 </section>
 <section id="station-details">
 <section id="station-address">
@@ -150,41 +149,20 @@ for (let i = 0; i < results.length; i++) {
 <h2>${results[i].Postcode} </h2>
 </section>
 <p id="miles-from">${
-        results[i].DistanceFromSearchPostcode
-      } Miles away from ${postCode.toUpperCase()} </p>
+            results[i].DistanceFromSearchPostcode
+          } Miles away from ${postCode.toUpperCase()} </p>
 </section>
 <section id="fuel-price-container">
 <p id="fuel-price">${x[j].LatestRecordedPrice.InPence}p</p>
 </section>
 </li>
 `;
+        }
+      }
+      document.getElementById("station-results").innerHTML = station;
     }
   }
 }
-document
-.getElementById("station-results").innerHTML = station;
-}
-}
-//     for (let i = 0; i < results.length; i++) {
-//       const x = results[i].FuelPriceList;
-
-//       for (let j = 0; j < x.length; j++) {
-//         if (x[j].FuelType === fuel) {
-//           table += `
-//     <tbody>
-//     <tr>
-// <td>${x[j].LatestRecordedPrice.InPence} </td>
-// <td>${results[i].Brand}</td>
-// <td>${results[i].DistanceFromSearchPostcode}</td>
-// <td>${results[i].Suburb ? results[i].Suburb : results[i].Town}</td>
-// </tr>
-// </tbody>`;
-//         }
-//         document.getElementById("fuel-table").innerHTML = table;
-//       }
-//     }
-//   }
-// }
 
 // export function sortByPrice() {
 //   const postCode = document.getElementById("post-code-input").value;
