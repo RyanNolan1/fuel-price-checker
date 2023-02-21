@@ -72,17 +72,24 @@ export function sortByFuel() {
       for (let j = 0; j < x.length; j++) {
         if (x[j].FuelType === fuel) {
           const station = `
-          <section class="station">
+<section class="station">
 <li class="station-list">
 <section class="station-logo">
 <h1>${results[i].Brand}</h1>
-<p class="station-town">${results[i].Suburb ? results[i].Suburb : results[i].Town}</p>
+<p id="station-town">${results[i].Suburb ? results[i].Suburb : results[i].Town}</p>
 </section>
-<section class="station-details">
-<h2>${results[i].DistanceFromSearchPostcode}(Miles) </h2>
-${x[j].LatestRecordedPrice.InPence}
-<station-details></li>
+<section id="station-details">
+<section id="station-address">
+<h2>${results[i].Name}<h2>
+<h2>${results[i].Street} </h2>
+<h2>${results[i].Postcode} </h2>
 </section>
+<p id="miles-from">${results[i].DistanceFromSearchPostcode} Miles away from ${postCode.toUpperCase()} </p>
+</section>
+<section id="fuel-price-container">
+<p id="fuel-price">${x[j].LatestRecordedPrice.InPence}p</p>
+</section>
+</li>
 `;
           document.querySelector("ul").insertAdjacentHTML("beforeend", station);
         }

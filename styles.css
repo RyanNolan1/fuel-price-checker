@@ -15,27 +15,33 @@ body {
 
 header {
   font-size: 3vh;
-  background-color: #02414f;
   color: white;
   height: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background:linear-gradient(rgb(2, 65, 79, 0.5), rgb(2, 65, 79, 0.8)), url("./images/fuel-pumps.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
-/* p {
-  font-size: 20px;
+p {
+  font-size: 15px;
   padding: 3%;
-} */
+  border-radius: 20px;
+}
 
 #post-code-input {
   width: 80vw;
-  height: 7vh;
+  height: 5vh;
   border-radius: 40px;
   margin: 5px;
   text-align: center;
   text-transform: uppercase;
   font-size: 20px;
+  border-color: #02414f;
+  border-width: 2px;
+  border-style: solid;
 }
 
 #unleaded {
@@ -43,9 +49,12 @@ header {
   color: rgb(255, 255, 255);
   font-weight: 600;
   width: 40vw;
-  height: 7vh;
+  height: 5vh;
   border-radius: 10px;
-  margin: 5px;
+  margin: 2.5px;
+  border-color: rgb(21, 110, 7);
+  border-width: 2px;
+  border-style: solid;
 }
 
 #super-unleaded {
@@ -53,9 +62,12 @@ header {
   color: green;
   font-weight: 600;
   width: 40vw;
-  height: 7vh;
+  height: 5vh;
   border-radius: 10px;
-  margin: 5px;
+  margin: 2.5px;
+  border-color: green;
+  border-width: 2px;
+  border-style: solid;
 }
 
 #diesel {
@@ -63,9 +75,12 @@ header {
   color: white;
   font-weight: 600;
   width: 40vw;
-  height: 7vh;
+  height: 5vh;
   border-radius: 10px;
-  margin: 5px;
+  margin: 2.5px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
 }
 
 #premium-diesel {
@@ -73,79 +88,133 @@ header {
   color: white;
   font-weight: 600;
   width: 40vw;
-  height: 7vh;
-  border-radius: 5px;
-  margin: 5px;
+  height: 5vh;
+  border-radius: 10px;
+  margin: 2.5px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
 }
 
 #sort-by-distance {
-  color: rgb(0, 0, 0);
-  background-color: white;
+  color:white;
+  background-color:#02414f;
   font-weight: 600;
   width: 40vw;
-  height: 7vh;
+  height: 5vh;
   border-radius: 10px;
-  margin: 5px;
+  margin: 2.5px;
+  border-color:#02414f;
+  border-width: 2px;
+  border-style: solid;
 }
 
 #sort-by-price {
-  color: rgb(0, 0, 0);
-  background-color: white;
+  color:white;
+  background-color:#02414f;
   font-weight: 600;
   width: 40vw;
-  height: 7vh;
+  height: 5vh;
   border-radius: 10px;
-  margin: 5px;
+  margin: 2.5px;
+  border-color:#02414f;
+  border-width: 2px;
+  border-style: solid;
 }
 
 ul {
-    display: inline-block;
-    padding: 0;
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .station {
   width: 90vw;
   text-align: center;
-  margin:10px;
+  margin: 10px;
   filter: drop-shadow(5px 5px 4px #dcdcde);
+  display: inline-block;
 }
 
 .station-list {
-    width: 90vw;
-    background-color:white;
-    height: 12vh;
-    border-radius: 10px;
-    display: flex;
+  width: 90vw;
+  background-color: rgb(255, 255, 255);
+  height: 12vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .station-logo {
-    width: 20vw;
-    background-color:#02414f;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    display: inline-block;
+  width: 24vw;
+  background-color: #02414f;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 80%;
+  flex-direction: column;
+  color: white;
+  font-size: 12px;
+  border-radius: 10px 0px 0px 10px;
 }
 
-.station-town {
-    height: 20px;
-    color: white;
+#station-town {
+  height: 20px;
+  color: white;
+  width: 20vw;
+  font-size: 10px;
+}
+
+#station-details {
+    width: 44vw;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#station-address {
+    height: 10vh;
 }
 
 
 h1 {
-    display:inline-block;
-    color: white;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height:70%;
+  display: inline-block;
+  width: 20vw;
+  
 }
 
 h2 {
-    width: 40%;
-    text-align: left;
-    font-size: 15px;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
 }
+
+#fuel-price-container {
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 17vw;
+}
+
+#fuel-price {
+    font-size: 1.5vh;
+    color: white;
+    background-color: #02414f;
+    border-radius:10px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    padding: 5px;
+    width: 14vw;
+}
+
+#miles-from {
+    font-size: 10px;
+    text-align: left;
+    padding: 0px;
+    margin-top: 1vh;
+    color: grey;
+    vertical-align: bottom;
+}
+
