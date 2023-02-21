@@ -122,16 +122,22 @@ p {
   border-style: solid;
 }
 
-ul {
+#station-results {
   list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(5px 5px 4px #dcdcde);
 }
 
-.station {
+#station {
   width: 90vw;
   text-align: center;
-  margin: 10px;
-  filter: drop-shadow(5px 5px 4px #dcdcde);
-  display: inline-block;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  row-gap: 1vh;
 }
 
 .station-list {
@@ -141,6 +147,7 @@ ul {
   border-radius: 10px;
   display: flex;
   flex-direction: row;
+  padding-top:10px;
 }
 
 .station-logo {
