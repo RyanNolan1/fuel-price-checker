@@ -5,47 +5,54 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   text-align: center;
 }
 
 #container {
   display: block;
+  text-align: center;
 }
 
 header {
-  font-size: 3vh;
+  font-size: 3rem;
   color: white;
-  height: 26vh;
+  height: 20rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background:linear-gradient(rgb(2, 65, 79, 0.5), rgb(2, 65, 79, 0.8)), url("./images/fuel-pumps.jpg");
+  background: linear-gradient(rgb(2, 65, 79, 0.5), rgb(2, 65, 79, 0.8)),
+    url("./images/fuel-pumps.jpg");
   background-position: center;
   background-size: cover;
   flex-direction: column;
   position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
 }
 
 #header-indent {
   background-color: rgb(255, 255, 255);
   width: 100%;
-  height: 1vh;;
-  bottom: 0px;
+  height: 1rem;
   position: absolute;
   bottom: 0;
-  border-radius: 10px 10px 0px 0px
+  border-radius: 1rem 1rem 0rem 0rem;
 }
 
 #instructions {
-  font-size: 15px;
-  padding: 3%;
-  border-radius: 20px;
+  font-size: 1.6rem;
+  padding: 1rem;
+  color:#202834;
 }
 
 #post-code-input {
   width: 80vw;
-  height: 5vh;
+  height: 4rem;
   border-radius: 40px;
   margin: 5px;
   text-align: center;
@@ -54,110 +61,66 @@ header {
   border-color: #02414f;
   border-width: 2px;
   border-style: solid;
+  max-width: 20rem;
+  color:#202834;
+  
+}
+
+#button-container {
+  max-width: 60rem;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.buttons {
+  font-weight: 600;
+  width: 16rem;
+  height: 4rem;
+  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+  border-radius: 1rem;
+  border-width: 0.2rem;
+  border-style: solid;
+}
+
+.buttons:focus {
+  outline: 2px solid orange;
 }
 
 #unleaded {
   background-color: rgb(21, 110, 7);
   color: rgb(255, 255, 255);
-  font-weight: 600;
-  width: 40vw;
-  height: 5vh;
-  border-radius: 10px;
-  margin: 2.5px;
   border-color: rgb(21, 110, 7);
-  border-width: 2px;
-  border-style: solid;
 }
-
-#unleaded:focus {
-  outline:2px solid orange;
-}
-
 
 #super-unleaded {
   background-color: white;
   color: green;
-  font-weight: 600;
-  width: 40vw;
-  height: 5vh;
-  border-radius: 10px;
-  margin: 2.5px;
   border-color: green;
-  border-width: 2px;
-  border-style: solid;
-}
-
-#super-unleaded:focus {
-  outline:2px solid orange;
 }
 
 #diesel {
   background-color: black;
   color: white;
-  font-weight: 600;
-  width: 40vw;
-  height: 5vh;
-  border-radius: 10px;
-  margin: 2.5px;
   border-color: black;
-  border-width: 2px;
-  border-style: solid;
 }
-
-#diesel:focus {
-  outline:2px solid orange;
-}
-
 
 #premium-diesel {
   background-color: black;
   color: white;
-  font-weight: 600;
-  width: 40vw;
-  height: 5vh;
-  border-radius: 10px;
-  margin: 2.5px;
   border-color: black;
-  border-width: 2px;
-  border-style: solid;
-}
-
-#premium-diesel:focus {
-  outline:2px solid orange;
 }
 
 #sort-by-distance {
-  color:white;
-  background-color:#02414f;
-  font-weight: 600;
-  width: 40vw;
-  height: 5vh;
-  border-radius: 10px;
-  margin: 2.5px;
-  border-color:#02414f;
-  border-width: 2px;
-  border-style: solid;
-}
-
-#sort-by-distance:focus {
-  outline:2px solid orange;
+  color: white;
+  background-color: #02414f;
+  border-color: #02414f;
 }
 
 #sort-by-price {
-  color:white;
-  background-color:#02414f;
-  font-weight: 600;
-  width: 40vw;
-  height: 5vh;
-  border-radius: 10px;
-  margin: 2.5px 2.5px 10px 2.5px;
-  border-color:#02414f;
-  border-width: 2px;
-  border-style: solid;
-}
-
-#sort-by-price:focus {
-  outline:2px solid orange;
+  color: white;
+  background-color: #02414f;
+  border-color: #02414f;
 }
 
 #station-results {
@@ -165,101 +128,101 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(5px 5px 4px #dcdcde);
+  filter: drop-shadow(5px 5px 4px #848484);
 }
 
 #station {
-  width: 90vw;
+  max-width: 100em;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  margin-bottom: 1vh;
+  justify-content: center;
 }
 
 .station-list {
   width: 90vw;
+  max-width: 60rem;
   background-color: rgb(255, 255, 255);
-  height: 12vh;
-  border-radius: 10px;
+  height: 10rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: row;
-  margin-bottom: 1vh;
+  margin-bottom: 1rem;
 }
 
 .station-logo {
-  width: 24vw;
+  width:30rem;
   background-color: #02414f;
   align-items: center;
   justify-content: center;
   display: flex;
-  font-size: 80%;
   flex-direction: column;
   color: white;
-  font-size: 12px;
+  font-size: 1.2rem;
   border-radius: 10px 0px 0px 10px;
 }
 
 #station-town {
-  height: 20px;
   color: white;
-  width: 20vw;
-  font-size: .8em;
+  width: 100%;
+  font-size: .8rem;
 }
 
 #station-details {
-    width: 44vw;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
+  width: 60rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 #station-address {
-    height: 10vh;
+  height: 8rem;
+}
+
+#miles-from {
+  font-size: .8remem;
+  text-align: left;
+  padding: 0rem;
+  margin-top: 1vh;
+  color: rgb(81, 81, 81);
+  vertical-align: bottom;
 }
 
 
 h1 {
   display: inline-block;
-  font-size: 1em;
-  margin-bottom: .1em;
-  
+  margin-bottom: 0.2rem;
+  font-size: 80%;
+  max-width: 80%;
 }
 
 h2 {
-  width: 100%;
   text-align: left;
-  font-size: .6rem;
+  font-size: 1.4rem;
+  color: #202834;
 }
 
 #fuel-price-container {
-    text-align: center;
-    align-items: center;
-    justify-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    width: 17vw;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 16vw;
+  max-width: 6rem;
 }
 
 #fuel-price {
-    font-size: 1.5vh;
-    color: white;
-    background-color: #02414f;
-    border-radius:10px;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-    padding: 5px;
-    width: 14vw;
+  font-size: 1.5vh;
+  color: white;
+  background-color: #02414f;
+  border-radius: 10px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  padding: 0.5rem;
+  width: 5rem;
 }
 
-#miles-from {
-    font-size: .5em;
-    text-align: left;
-    padding: 0px;
-    margin-top: 1vh;
-    color: grey;
-    vertical-align: bottom;
-}
 
