@@ -46,6 +46,25 @@ function sortByPremiumDiesel() {
   return fuel;
 }
 
+const logos = [
+  {name: 'TOTAL ENERGIES', logo:'/images/total-energies.png' },
+  {name: 'SAINSBURYS', logo:'/images/sainsburys.png' },
+  {name: 'ASDA', logo:'/images/ASDA.png' },
+  {name: 'TEXACO', logo:'/images/texaco.png' },
+  {name: 'SHELL', logo:'/images/shell.png' },
+  {name: 'BP', logo:'/images/bp.png' },
+  {name: 'MORRISONS', logo:'/images/morrisons.png' },
+  {name: 'TESCO EXTRA', logo:'/images/tesco.png' }
+]
+
+function logoFinder(company) {
+for (let i = 0; i < logos.length; i++) {
+  if (logos[i].name === company) {
+    return logos[i].logo
+  }
+}
+}
+
 export function sortByFuel() {
   const postCode = document.getElementById("post-code-input").value;
 
@@ -76,8 +95,8 @@ export function sortByFuel() {
           station += `
     <section id="station">
     <li class="station-list">
-    <section class="station-logo">
-    <h1>${results[i].Brand}</h1>
+    <section id="station-container">
+    <img id="station-logo" src="${logoFinder(results[i].Brand)}"></img>
     <p id="station-town">${
       results[i].Suburb ? results[i].Suburb : results[i].Town
     }</p>
@@ -136,8 +155,8 @@ export function sortByDistance() {
           station += `
 <section id="station">
 <li class="station-list">
-<section class="station-logo">
-<h1>${results[i].Brand}</h1>
+<section id="station-container">
+    <img id="station-logo" src="${logoFinder(results[i].Brand)}"></img>
 <p id="station-town">${
             results[i].Suburb ? results[i].Suburb : results[i].Town
           }</p>
@@ -230,8 +249,8 @@ export function sortByPrice() {
       station += `
       <section id="station">
       <li class="station-list">
-      <section class="station-logo">
-      <h1>${priceArray[i].Company}</h1>
+      <section id="station-container">
+      <img id="station-logo" src="${logoFinder(priceArray[i].Company)}"></img>
       <p id="station-town">${priceArray[i].Location}</p>
       </section>
       <section id="station-details">

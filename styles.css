@@ -163,7 +163,7 @@ header {
   filter: drop-shadow(5px 5px 4px #848484);
 }
 
-.station-logo {
+#station-container {
   width: 10rem;
   max-width: 10rem;
   background-color: #02414f;
@@ -174,6 +174,11 @@ header {
   color: white;
   font-size: 1.2rem;
   border-radius: 10px 0px 0px 10px;
+  gap: 0.8rem;
+}
+
+#station-logo {
+  width: 6rem;
 }
 
 #station-town {
