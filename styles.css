@@ -7,15 +7,21 @@
 
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   text-align: center;
+  background-color: #848484;
 }
 
 #container {
   display: block;
   text-align: center;
+  background-color: white;
+  max-width: 80rem;
+  margin: 0 auto;
+  height:100vh;
 }
 
 header {
@@ -47,7 +53,7 @@ header {
 #instructions {
   font-size: 1.6rem;
   padding: 1rem;
-  color:#202834;
+  color: #202834;
 }
 
 #post-code-input {
@@ -62,8 +68,11 @@ header {
   border-width: 2px;
   border-style: solid;
   max-width: 20rem;
-  color:#202834;
-  
+  color: #202834;
+}
+
+#post-code-input:focus {
+  outline: 2px solid orange;
 }
 
 #button-container {
@@ -71,6 +80,7 @@ header {
   margin: 0 auto;
   margin-bottom: 0.5rem;
   margin-top: 0.2rem;
+  background-color: white;
 }
 
 .buttons {
@@ -129,14 +139,17 @@ header {
   align-items: center;
   justify-content: center;
   filter: drop-shadow(5px 5px 4px #848484);
+  background-color: rgb(255, 255, 255);
 }
 
 #station {
-  max-width: 100em;
+  max-width: 80rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+
 }
 
 .station-list {
@@ -148,10 +161,12 @@ header {
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
+  filter: drop-shadow(5px 5px 4px #848484);
 }
 
 .station-logo {
-  width:30rem;
+  width: 10rem;
+  max-width: 10rem;
   background-color: #02414f;
   align-items: center;
   justify-content: center;
@@ -164,8 +179,8 @@ header {
 
 #station-town {
   color: white;
-  width: 100%;
-  font-size: .8rem;
+  width: 10rem;
+  font-size: 1rem;
 }
 
 #station-details {
@@ -180,14 +195,13 @@ header {
 }
 
 #miles-from {
-  font-size: .8remem;
+  font-size: 0.8remem;
   text-align: left;
   padding: 0rem;
   margin-top: 1vh;
   color: rgb(81, 81, 81);
   vertical-align: bottom;
 }
-
 
 h1 {
   display: inline-block;
@@ -198,31 +212,24 @@ h1 {
 
 h2 {
   text-align: left;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #202834;
 }
 
 #fuel-price-container {
-  text-align: center;
   align-items: center;
   justify-items: center;
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  width: 16vw;
-  max-width: 6rem;
+  max-width: 5rem;
+  height: 3rem;
 }
 
 #fuel-price {
-  font-size: 1.5vh;
-  color: white;
+  font-size: 1.4rem;
+  color: rgb(255, 255, 255);
   background-color: #02414f;
   border-radius: 10px;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
   padding: 0.5rem;
-  width: 5rem;
 }
-
-
