@@ -31,7 +31,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgb(2, 65, 79, 0.5), rgb(2, 65, 79, 0.8)),
+  background: linear-gradient(rgb(2, 65, 79, 0.87), rgb(2, 65, 79, 1)),
     url("./images/fuel-pumps.jpg");
   background-position: center;
   background-size: cover;
@@ -39,6 +39,10 @@ header {
   position: relative;
   max-width: 80rem;
   margin: 0 auto;
+}
+
+#header-image {
+  width: 40rem;
 }
 
 #header-indent {
@@ -258,17 +262,23 @@ h2 {
 }
 
 @media screen and (max-width: 440px) {
+  #header-image {
+    width:30rem;
+  }
   .buttons {
     font-size: 1.2rem;
     width: 16rem;
   }
 }
 
-@media screen and (min-width: 440px) {
+@media screen and (max-width: 360px) {
+
+
   .buttons {
     font-size: 1.2rem;
     width: 10rem;
   }
+
 
   h2 {
     font-size: 0.9rem;
@@ -287,6 +297,10 @@ h2 {
 }
 
 @media screen and (max-width: 300px) {
+  #header-image {
+    width:20rem;
+  }
+
   .buttons {
     font-size: 1.0rem;
     width: 10rem;
@@ -314,5 +328,4 @@ h2 {
   #station-address {
     height: 14rem;
   }
-}
 }
