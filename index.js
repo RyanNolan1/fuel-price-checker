@@ -109,7 +109,7 @@ export function sortByFuel() {
     </section>
     <p id="miles-from">${
       results[i].DistanceFromSearchPostcode
-    } Miles away from ${postCode.toUpperCase()} </p>
+    } Miles from ${postCode.toUpperCase()} </p>
     </section>
     <section id="fuel-price-container">
     <p id="fuel-price">${x[j].LatestRecordedPrice.InPence}p</p>
@@ -169,7 +169,7 @@ export function sortByDistance() {
 </section>
 <p id="miles-from">${
             results[i].DistanceFromSearchPostcode
-          } Miles away from ${postCode.toUpperCase()} </p>
+          } Miles from ${postCode.toUpperCase()} </p>
 </section>
 <section id="fuel-price-container">
 <p id="fuel-price">${x[j].LatestRecordedPrice.InPence}p</p>
@@ -261,7 +261,7 @@ export function sortByPrice() {
       </section>
       <p id="miles-from">${
         priceArray[i].Distance
-      } Miles away from ${postCode.toUpperCase()} </p>
+      } Miles from ${postCode.toUpperCase()} </p>
       </section>
       <section id="fuel-price-container">
       <p id="fuel-price">${priceArray[i].Price}p</p>

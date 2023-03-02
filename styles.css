@@ -21,7 +21,7 @@ body {
   background-color: white;
   max-width: 80rem;
   margin: 0 auto;
-  height:100vh;
+  height: 100vh;
 }
 
 header {
@@ -91,6 +91,7 @@ header {
   border-radius: 1rem;
   border-width: 0.2rem;
   border-style: solid;
+  display: inline;
 }
 
 .buttons:focus {
@@ -147,8 +148,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-
 }
 
 .station-list {
@@ -199,7 +198,7 @@ header {
 }
 
 #miles-from {
-  font-size: 0.8remem;
+  font-size: 1.2rem;
   text-align: left;
   padding: 0rem;
   margin-top: 1vh;
@@ -216,7 +215,7 @@ h1 {
 
 h2 {
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: #202834;
 }
 
@@ -234,6 +233,86 @@ h2 {
   font-size: 1.4rem;
   color: rgb(255, 255, 255);
   background-color: #02414f;
-  border-radius: 10px;
-  padding: 0.5rem;
+  border-radius: 6px;
+  width: 6rem;
+  height: 3rem;
+  vertical-align: middle;
+  line-height: 3rem;
+}
+
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: 1rem;
+  }
+
+  #miles-from {
+    font-size: 1rem;
+  }
+
+  #fuel-price {
+    font-size: 1.2rem;
+    width: 5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .buttons {
+    font-size: 1.2rem;
+    width: 16rem;
+  }
+}
+
+@media screen and (min-width: 440px) {
+  .buttons {
+    font-size: 1.2rem;
+    width: 10rem;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  #miles-from {
+    font-size: 1rem;
+  }
+
+  #fuel-price {
+    font-size: 0.8rem;
+    width: 4rem;
+    height: 2rem;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .buttons {
+    font-size: 1.0rem;
+    width: 10rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  #miles-from {
+    font-size: 1rem;
+  }
+
+  #fuel-price {
+    font-size: 0.8rem;
+    width: 4rem;
+    height: 2rem;
+    line-height: 2rem;
+  }
+
+  .station-list {
+    height: 14rem;
+  }
+
+  #station-address {
+    height: 14rem;
+  }
+}
 }
