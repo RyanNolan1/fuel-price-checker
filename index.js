@@ -1,4 +1,6 @@
-import { api_key } from "./key.js";
+require('dotenv').config();
+const api_key = process.env.API_KEY;
+console.log(api_key)
 
 document.getElementById("unleaded").addEventListener("click", sortByFuel);
 document
