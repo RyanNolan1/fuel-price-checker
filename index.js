@@ -1,5 +1,6 @@
 import { api_key } from "./key.js";
 
+
 document.getElementById("unleaded").addEventListener("click", sortByFuel);
 document
   .getElementById("unleaded")
