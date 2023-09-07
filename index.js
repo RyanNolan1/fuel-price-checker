@@ -48,14 +48,14 @@ function sortByPremiumDiesel() {
 }
 
 const logos = [
-  {name: 'TOTAL ENERGIES', logo:'/images/total-energies.png' },
-  {name: 'SAINSBURYS', logo:'/images/sainsburys.png' },
-  {name: 'ASDA', logo:'/images/ASDA.png' },
-  {name: 'TEXACO', logo:'/images/texaco.png' },
-  {name: 'SHELL', logo:'/images/shell.png' },
-  {name: 'BP', logo:'/images/bp.png' },
-  {name: 'MORRISONS', logo:'/images/morrisons.png' },
-  {name: 'TESCO EXTRA', logo:'/images/tesco.png' }
+  {name: 'TOTAL ENERGIES', logo:'./images/total-energies.png' },
+  {name: 'SAINSBURYS', logo:'./images/sainsburys.png' },
+  {name: 'ASDA', logo:'./images/ASDA.png' },
+  {name: 'TEXACO', logo:'./images/texaco.png' },
+  {name: 'SHELL', logo:'./images/shell.png' },
+  {name: 'BP', logo:'./images/bp.png' },
+  {name: 'MORRISONS', logo:'./images/morrisons.png' },
+  {name: 'TESCO EXTRA', logo:'./images/tesco.png' }
 ]
 
 function logoFinder(company) {
